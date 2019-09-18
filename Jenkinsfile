@@ -22,7 +22,7 @@
         }
     stage('Deploy') {
             steps {
-                sh 'echo "Test Deploy"'
+                sh 'echo "Test Deploy Hello World"'
         
             }
         }
