@@ -1,17 +1,24 @@
 
-  pipeline {
+ pipeline {
     agent any
     stages {
         stage('Build') {
             steps {
-                echo "this is First test"
-    def myRepo = checkout scm
-    def gitCommit = myRepo.GIT_COMMIT
-    def gitBranch = myRepo.GIT_BRANCH
-    def shortGitCommit = "${gitCommit[0..10]}"
-    def previousGitCommit = sh(script: "git rev-parse ${gitCommit}~", returnStdout: true)
+                sh 'echo "Hello World"'
             }
         }
-    }
+        stage('Test') {
+            steps {
+                sh 'echo "Hello World"'
+               echo "Multiline shell steps works build id  ${env.BUILD_ID} Build Name ${env.BUILD_DISPLAY_NAME} node name ${env.NODE_NAME} job name ${env.JOB_NAME}"
+             
+            }
+        }
+    stage('Deploy') {
+            steps {
+                sh 'echo "Test Deploy"'
+        
+            }
+        }
+            }
 }
-
