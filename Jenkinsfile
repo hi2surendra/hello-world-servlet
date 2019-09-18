@@ -6,7 +6,7 @@
 ],
 volumes: [
  hostPathVolume(mountPath: '/var/run/docker.sock', hostPath: '/var/run/docker.sock')]
-)*/ {
+)*/ // {
   node() {
     echo "this is First test"
     def myRepo = checkout scm
@@ -36,5 +36,5 @@ volumes: [
         sh "kubectl apply -f samples/bookinfo/platform/kube/productinfo-vs-gw-dr.yaml"
       }
     }*/
-  }
+//  }
 }
