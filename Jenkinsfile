@@ -1,4 +1,4 @@
-def label = "worker-${UUID.randomUUID().toString()}"
+//def label = "worker-${UUID.randomUUID().toString()}"
 //  containerTemplate(name: 'kubectl', image: 'lachlanevenson/k8s-kubectl:v1.8.8', command: 'cat', ttyEnabled: true),
 
 /*podTemplate(label: label, containers: [
@@ -7,7 +7,8 @@ def label = "worker-${UUID.randomUUID().toString()}"
 volumes: [
  hostPathVolume(mountPath: '/var/run/docker.sock', hostPath: '/var/run/docker.sock')]
 )*/ {
-  node(label) {
+  node() {
+    echo "this is First test"
     def myRepo = checkout scm
     def gitCommit = myRepo.GIT_COMMIT
     def gitBranch = myRepo.GIT_BRANCH
